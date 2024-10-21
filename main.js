@@ -20,3 +20,16 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // Task 3 is already performed by the code in Task 2 in the last part where we show the stock activity
 
+//Taslk 4 Create a Checkout Event
+// Creating the checkout event listener
+purchaseBtn.addEventListener('click', () => {
+    const selectedOption = sizeDropdown.options[sizeDropdown.selectedIndex];
+    const inStock = selectedOption.getAttribute('data-stock') === 'true';
+    
+    if (inStock) {
+        alert('Purchase successful!');
+    } else {
+        alert('Sorry, this product is out of stock.');
+    }
+});
+
