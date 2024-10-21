@@ -27,9 +27,31 @@ purchaseBtn.addEventListener('click', () => {
     const inStock = selectedOption.getAttribute('data-stock') === 'true';
     
     if (inStock) {
-        alert('Purchase successful!');
+        alert('Your purchase is confirmed');
     } else {
-        alert('Sorry, this product is out of stock.');
+        alert('We are sorry, this product is unavailable.');
     }
 });
+
+//Task 5 Implement Event Delegation for Dynamic Product List
+const addProductForm = document.getElementById('add-product-form');
+    addProductForm.addEventListener('submit', (event) => {
+        event.preventDefault();
+        
+        const newProductName = document.getElementById('new-product-name').value;
+        const newProductPrice = document.getElementById('new-product-price').value;
+        const newProductSize = document.getElementById('new-product-size');
+        const selectedOption = newProductSize.options[newProductSize.selectedIndex];
+        const inStock = selectedOption.getAttribute('data-stock') === 'true';
+
+        const newOption = document.createElement('option');
+        newOption.text = `${newProductName} - $${newProductPrice}`;
+        newOption.setAttribute('data-price', newProductPrice);
+        newOption.setAttribute('data-stock', inStock);
+
+        sizeDropdown.add(newOption);
+
+        alert('New product included!');
+    });
+    //
 
