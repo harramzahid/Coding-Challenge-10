@@ -20,4 +20,3 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // Task 3 is already performed by the code in Task 2 in the last part where we show the stock activity
 
-//Task 4 
